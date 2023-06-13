@@ -2,9 +2,9 @@ using System.Windows.Media;
 
 namespace Experior.Catalog.Developer.Training
 {
-    public class MyCatalog : Experior.Core.Catalog
+    public class Developer : Experior.Core.Catalog
     {
-        public MyCatalog()
+        public Developer()
             : base("MyCatalog")
         {
             Simulation = Experior.Core.Environment.Simulation.Events | Experior.Core.Environment.Simulation.Physics;
