@@ -10,7 +10,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Experior.Catalog.Developer.Training</RootNamespace>
-    <AssemblyName>Experior.Catalog.MyCatalog</AssemblyName>
+    <AssemblyName>Experior.Catalog.Developer.Training</AssemblyName>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>3.5</OldToolsVersion>
@@ -59,6 +59,7 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -70,15 +71,28 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assemblies\MyAssembly.cs" />
     <Compile Include="Create.cs" />
     <Compile Include="Developer.cs" />
+    <Compile Include="Motors\AuxiliaryData.cs" />
+    <Compile Include="Motors\Basic\Base.cs" />
+    <Compile Include="Motors\Basic\Surface.cs" />
+    <Compile Include="Motors\Basic\Vector.cs" />
+    <Compile Include="Motors\Collections\VectorCollection.cs" />
+    <Compile Include="Motors\Interfaces\IElectricSurfaceMotor.cs" />
+    <Compile Include="Motors\Interfaces\IElectricVectorMotor.cs" />
+    <Compile Include="Motors\Parts\Encoder.cs" />
+    <Compile Include="Motors\Parts\MechanicalSwitch.cs" />
+    <Compile Include="Motors\Parts\Motion.cs" />
+    <Compile Include="Motors\Parts\VectorLimits.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon\MyAssembly.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Assemblies\Advanced\" />
+    <Folder Include="Assemblies\Beginner\" />
+    <Folder Include="Assemblies\Intermediate\" />
     <Folder Include="Mesh\" />
     <Folder Include="Texture\" />
   </ItemGroup>
