@@ -42,6 +42,16 @@ namespace Experior.Catalog.Developer.Training
             return new Assemblies.Intermediate.CurveConveyorBelt(info);
         }
 
+        public static Assembly FixPoints(string title, string subtitle, object properties)
+        {
+            var info = new Assemblies.Intermediate.FixPointsInfo()
+            {
+                name = Experior.Core.Assemblies.Assembly.GetValidName("Fix Points "),
+                length = 1f
+            };
+            return new Assemblies.Intermediate.FixPoints(info);
+        }
+
         #endregion
 
         #region Advanced

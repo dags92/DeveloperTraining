@@ -31,6 +31,7 @@ namespace Experior.Catalog.Developer.Training
         {
             Add(Common.Icon.Get("StraightConveyorBelt"), "Intermediate", "Straight Conveyor Belt", Simulation, Create.StraightConveyorBelt);
             Add(Common.Icon.Get("CurveConveyorBelt"), "Intermediate", "Curve Conveyor Belt", Simulation, Create.CurveConveyorBelt);
+            Add(Common.Icon.Get("FixPoints"), "Intermediate", "Fix Points", Simulation, Create.FixPoints);
         }
 
         #endregion
