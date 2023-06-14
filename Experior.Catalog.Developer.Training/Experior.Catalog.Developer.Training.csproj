@@ -71,6 +71,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assemblies\Intermediate\CurveConveyorBelt.cs" />
+    <Compile Include="Assemblies\Intermediate\StraightConveyorBelt.cs" />
     <Compile Include="Create.cs" />
     <Compile Include="Developer.cs" />
     <Compile Include="Motors\AuxiliaryData.cs" />
@@ -92,7 +94,6 @@
   <ItemGroup>
     <Folder Include="Assemblies\Advanced\" />
     <Folder Include="Assemblies\Beginner\" />
-    <Folder Include="Assemblies\Intermediate\" />
     <Folder Include="Mesh\" />
     <Folder Include="Texture\" />
   </ItemGroup>

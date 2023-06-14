@@ -1,4 +1,5 @@
 using Experior.Core.Assemblies;
+using Experior.Core.Mathematics;
 
 namespace Experior.Catalog.Developer.Training
 {
@@ -18,7 +19,28 @@ namespace Experior.Catalog.Developer.Training
 
         #region Intermediate
 
+        public static Assembly StraightConveyorBelt(string title, string subtitle, object properties)
+        {
+            var info = new Assemblies.Intermediate.StraightConveyorBeltInfo()
+            {
+                name = Experior.Core.Assemblies.Assembly.GetValidName("Straight Conveyor Belt "),
+                length = 1.5f,
+                width = 0.5f
+            };
+            return new Assemblies.Intermediate.StraightConveyorBelt(info);
+        }
 
+        public static Assembly CurveConveyorBelt(string title, string subtitle, object properties)
+        {
+            var info = new Assemblies.Intermediate.CurveConveyorBeltInfo()
+            {
+                name = Experior.Core.Assemblies.Assembly.GetValidName("Curve Conveyor Belt "),
+                Radius = 0.6f,
+                width = 0.5f,
+                Angle = 90f
+            };
+            return new Assemblies.Intermediate.CurveConveyorBelt(info);
+        }
 
         #endregion
 
@@ -30,15 +52,8 @@ namespace Experior.Catalog.Developer.Training
 
         #region Demo
 
-        
+
 
         #endregion
-
-        //public static Assembly MyAssembly(string title, string subtitle, object properties)
-        //{
-        //    var info = new Experior.Catalog.Developer.Training.Assemblies.MyAssemblyInfo { name = Experior.Core.Assemblies.Assembly.GetValidName("MyAssembly") };
-        //    var assembly = new Experior.Catalog.Developer.Training.Assemblies.MyAssembly(info);
-        //    return assembly;
-        //}
     }
 }

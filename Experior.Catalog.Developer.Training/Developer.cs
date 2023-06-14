@@ -14,7 +14,7 @@ namespace Experior.Catalog.Developer.Training
             Common.Mesh = new Experior.Core.Resources.EmbeddedResourceLoader(System.Reflection.Assembly.GetExecutingAssembly());
             Common.Icon = new Experior.Core.Resources.EmbeddedImageLoader(System.Reflection.Assembly.GetExecutingAssembly());
 
-            //Add(Common.Icon.Get("MyAssembly"), "MyAssembly", "", Experior.Core.Environment.Simulation.Events | Experior.Core.Environment.Simulation.Physics, Create.MyAssembly);
+            AddIntermediateSamples();
         }
 
         #endregion
@@ -22,6 +22,16 @@ namespace Experior.Catalog.Developer.Training
         #region Public Properties
 
         public override ImageSource Logo => Common.Icon.Get("Logo");
+
+        #endregion
+
+        #region Private Methods
+
+        private void AddIntermediateSamples()
+        {
+            Add(Common.Icon.Get("StraightConveyorBelt"), "Intermediate", "Straight Conveyor Belt", Simulation, Create.StraightConveyorBelt);
+            Add(Common.Icon.Get("CurveConveyorBelt"), "Intermediate", "Curve Conveyor Belt", Simulation, Create.CurveConveyorBelt);
+        }
 
         #endregion
     }
