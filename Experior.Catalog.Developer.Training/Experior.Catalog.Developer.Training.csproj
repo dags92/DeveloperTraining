@@ -74,6 +74,7 @@
     <Compile Include="Assemblies\Intermediate\CadMesh.cs" />
     <Compile Include="Assemblies\Intermediate\CurveConveyorBelt.cs" />
     <Compile Include="Assemblies\Intermediate\FixPoints.cs" />
+    <Compile Include="Assemblies\Intermediate\Magnet.cs" />
     <Compile Include="Assemblies\Intermediate\Printer.cs" />
     <Compile Include="Assemblies\Intermediate\StraightConveyorBelt.cs" />
     <Compile Include="Create.cs" />

@@ -71,6 +71,15 @@ namespace Experior.Catalog.Developer.Training
             return new Assemblies.Intermediate.Printer(info);
         }
 
+        public static Assembly Magnet(string title, string subtitle, object properties)
+        {
+            var info = new Assemblies.Intermediate.MagnetInfo()
+            {
+                name = Experior.Core.Assemblies.Assembly.GetValidName("Magnet "),
+            };
+            return new Assemblies.Intermediate.Magnet(info);
+        }
+
         #endregion
 
         #region Advanced
