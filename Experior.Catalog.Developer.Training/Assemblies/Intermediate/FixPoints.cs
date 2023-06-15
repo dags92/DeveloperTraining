@@ -4,7 +4,6 @@ using System.Numerics;
 using System.Windows.Media;
 using System.Xml.Serialization;
 using Experior.Core.Assemblies;
-using Experior.Core.Mathematics;
 using Experior.Core.Parts;
 using Experior.Core.Properties;
 using Experior.Core.Properties.TypeConverter;

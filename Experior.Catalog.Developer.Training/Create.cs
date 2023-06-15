@@ -52,6 +52,16 @@ namespace Experior.Catalog.Developer.Training
             return new Assemblies.Intermediate.FixPoints(info);
         }
 
+        public static Assembly CadMesh(string title, string subtitle, object properties)
+        {
+            var info = new Assemblies.Intermediate.CadMeshInfo()
+            {
+                name = Experior.Core.Assemblies.Assembly.GetValidName("Cad Mesh "),
+                length = 1f
+            };
+            return new Assemblies.Intermediate.CadMesh(info);
+        }
+
         #endregion
 
         #region Advanced

@@ -71,6 +71,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assemblies\Intermediate\CadMesh.cs" />
     <Compile Include="Assemblies\Intermediate\CurveConveyorBelt.cs" />
     <Compile Include="Assemblies\Intermediate\FixPoints.cs" />
     <Compile Include="Assemblies\Intermediate\StraightConveyorBelt.cs" />
@@ -95,8 +96,18 @@
   <ItemGroup>
     <Folder Include="Assemblies\Advanced\" />
     <Folder Include="Assemblies\Beginner\" />
-    <Folder Include="Mesh\" />
     <Folder Include="Texture\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mesh\Glide_S_W200.STL" />
+    <EmbeddedResource Include="Mesh\Profile_S_W200.STL" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mesh\Drive_S_W200.STL" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mesh\End_S_W200.STL" />
+    <EmbeddedResource Include="Mesh\Motor_S_W200.STL" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterBuild">
