@@ -13,7 +13,16 @@ namespace Experior.Catalog.Developer.Training
     {
         #region Beginner
 
-
+        public static Assembly PlcSignal(string title, string subtitle, object properties)
+        {
+            var info = new Assemblies.Beginner.PlcSignalsInfo()
+            {
+                name = Experior.Core.Assemblies.Assembly.GetValidName("PLC Signal "),
+                length = 1.5f,
+                width = 0.5f
+            };
+            return new Assemblies.Beginner.PlcSignals(info);
+        }
 
         #endregion
 

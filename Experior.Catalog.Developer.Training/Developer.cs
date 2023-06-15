@@ -14,6 +14,7 @@ namespace Experior.Catalog.Developer.Training
             Common.Mesh = new Experior.Core.Resources.EmbeddedResourceLoader(System.Reflection.Assembly.GetExecutingAssembly());
             Common.Icon = new Experior.Core.Resources.EmbeddedImageLoader(System.Reflection.Assembly.GetExecutingAssembly());
 
+            AddBeginnerSamples();
             AddIntermediateSamples();
         }
 
@@ -26,6 +27,12 @@ namespace Experior.Catalog.Developer.Training
         #endregion
 
         #region Private Methods
+
+        private void AddBeginnerSamples()
+        {
+            Add(Common.Icon.Get("PlcSignals"), "Beginner", "PLC Signal", Simulation, Create.PlcSignal);
+
+        }
 
         private void AddIntermediateSamples()
         {

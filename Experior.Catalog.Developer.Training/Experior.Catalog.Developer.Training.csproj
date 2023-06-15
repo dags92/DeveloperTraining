@@ -71,6 +71,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assemblies\Beginner\PlcSignals.cs" />
     <Compile Include="Assemblies\Intermediate\CadMesh.cs" />
     <Compile Include="Assemblies\Intermediate\CurveConveyorBelt.cs" />
     <Compile Include="Assemblies\Intermediate\FixPoints.cs" />
@@ -97,7 +98,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assemblies\Advanced\" />
-    <Folder Include="Assemblies\Beginner\" />
     <Folder Include="Texture\" />
   </ItemGroup>
   <ItemGroup>
