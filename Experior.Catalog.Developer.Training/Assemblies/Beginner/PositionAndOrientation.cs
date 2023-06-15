@@ -84,6 +84,12 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
                 case Key.S:
                     _movable.LocalPosition -= new Vector3(deltaX, 0, 0);
                     break;
+                case Key.E:
+                    Position += new Vector3(deltaX, 0, 0);
+                    break;
+                case Key.D:
+                    Position -= new Vector3(deltaX, 0, 0);
+                    break;
                 case Key.Z:
                     _movable.LocalYaw += deltaAngle;
                     break;
@@ -95,6 +101,9 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
                     break;
                 case Key.V:
                     Yaw += deltaAngle;
+                    break;
+                case Key.B:
+                    Pitch += deltaAngle;
                     break;
             }
         }
