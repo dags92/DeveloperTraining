@@ -62,6 +62,15 @@ namespace Experior.Catalog.Developer.Training
             return new Assemblies.Intermediate.CadMesh(info);
         }
 
+        public static Assembly Printer(string title, string subtitle, object properties)
+        {
+            var info = new Assemblies.Intermediate.PrinterInfo()
+            {
+                name = Experior.Core.Assemblies.Assembly.GetValidName("Printer "),
+            };
+            return new Assemblies.Intermediate.Printer(info);
+        }
+
         #endregion
 
         #region Advanced

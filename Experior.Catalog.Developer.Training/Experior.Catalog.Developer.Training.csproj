@@ -74,6 +74,7 @@
     <Compile Include="Assemblies\Intermediate\CadMesh.cs" />
     <Compile Include="Assemblies\Intermediate\CurveConveyorBelt.cs" />
     <Compile Include="Assemblies\Intermediate\FixPoints.cs" />
+    <Compile Include="Assemblies\Intermediate\Printer.cs" />
     <Compile Include="Assemblies\Intermediate\StraightConveyorBelt.cs" />
     <Compile Include="Create.cs" />
     <Compile Include="Developer.cs" />
@@ -108,6 +109,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Mesh\End_S_W200.STL" />
     <EmbeddedResource Include="Mesh\Motor_S_W200.STL" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mesh\SchneiderLogo.x" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterBuild">

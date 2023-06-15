@@ -25,7 +25,7 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Intermediate
         public CadMesh(CadMeshInfo info) : base(info)
         {
             _info = info;
-
+            
             _motor = new Model(Common.Mesh.Get("Motor_S_W200.STL"))
             {
                 Color = Colors.Red
