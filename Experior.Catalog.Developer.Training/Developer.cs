@@ -30,8 +30,8 @@ namespace Experior.Catalog.Developer.Training
 
         private void AddBeginnerSamples()
         {
+            Add(Common.Icon.Get("PositionAndOrientation"), "Beginner", "Position and Orientation", Simulation, Create.PositionAndOrientation);
             Add(Common.Icon.Get("PlcSignals"), "Beginner", "PLC Signal", Simulation, Create.PlcSignal);
-
         }
 
         private void AddIntermediateSamples()

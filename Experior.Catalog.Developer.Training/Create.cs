@@ -13,6 +13,15 @@ namespace Experior.Catalog.Developer.Training
     {
         #region Beginner
 
+        public static Assembly PositionAndOrientation(string title, string subtitle, object properties)
+        {
+            var info = new Assemblies.Beginner.PositionAndOrientationInfo()
+            {
+                name = Experior.Core.Assemblies.Assembly.GetValidName("Position and Orientation "),
+            };
+            return new Assemblies.Beginner.PositionAndOrientation(info);
+        }
+
         public static Assembly PlcSignal(string title, string subtitle, object properties)
         {
             var info = new Assemblies.Beginner.PlcSignalsInfo()

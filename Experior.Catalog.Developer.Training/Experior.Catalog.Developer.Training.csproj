@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assemblies\Beginner\PlcSignals.cs" />
+    <Compile Include="Assemblies\Beginner\PositionAndOrientation.cs" />
     <Compile Include="Assemblies\Intermediate\CadMesh.cs" />
     <Compile Include="Assemblies\Intermediate\CurveConveyorBelt.cs" />
     <Compile Include="Assemblies\Intermediate\FixPoints.cs" />
