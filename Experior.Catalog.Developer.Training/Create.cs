@@ -130,6 +130,23 @@ namespace Experior.Catalog.Developer.Training
             return new CoordinateSystems(info);
         }
 
+        public static Assembly StraightTransportSection(string title, string subtitle, object properties)
+        {
+            var info = new StraightTransportSectionInfo()
+            {
+                name = Assembly.GetValidName("Straight Transport Section Sample "),
+            };
+            return new StraightTransportSection(info);
+        }
+
+        public static Assembly CurvedTransportSection(string title, string subtitle, object properties)
+        {
+            var info = new CurvedTransportSectionInfo()
+            {
+                name = Assembly.GetValidName("Curved Transport Section Sample "),
+            };
+            return new CurvedTransportSection(info);
+        }
 
         #endregion
 

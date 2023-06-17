@@ -46,6 +46,8 @@ namespace Experior.Catalog.Developer.Training
             Add(Common.Icon.Get("CadMesh"), "Intermediate", "CAD Mesh", Simulation, Create.CadMesh);
             Add(Common.Icon.Get("Printer"), "Intermediate", "Printer", Simulation, Create.Printer);
             Add(Common.Icon.Get("CoordinateSystems"), "Intermediate", "Coordinate System", Simulation, Create.CoordinateSystems);
+            Add(Common.Icon.Get("StraightTransportSection"), "Intermediate", "Straight Transport Section", Simulation, Create.StraightTransportSection);
+            Add(Common.Icon.Get("CurvedTransportSection"), "Intermediate", "Curved Transport Section", Simulation, Create.CurvedTransportSection);
         }
 
         private void AddAdvancedSamples()

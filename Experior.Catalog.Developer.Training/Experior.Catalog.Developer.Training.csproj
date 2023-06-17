@@ -80,8 +80,10 @@
     <Compile Include="Assemblies\Intermediate\CurveConveyorBelt.cs" />
     <Compile Include="Assemblies\Beginner\FixPoints.cs" />
     <Compile Include="Assemblies\Beginner\Magnet.cs" />
+    <Compile Include="Assemblies\Intermediate\CurvedTransportSection.cs" />
     <Compile Include="Assemblies\Intermediate\Printer.cs" />
     <Compile Include="Assemblies\Intermediate\StraightConveyorBelt.cs" />
+    <Compile Include="Assemblies\Intermediate\StraightTransportSection.cs" />
     <Compile Include="Create.cs" />
     <Compile Include="Developer.cs" />
     <Compile Include="Motors\AuxiliaryData.cs" />
