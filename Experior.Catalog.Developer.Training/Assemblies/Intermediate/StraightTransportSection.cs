@@ -125,7 +125,7 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Intermediate
         private void CreateLoad()
         {
             var load = Experior.Core.Loads.Load.CreateBox(0.2f, 0.2f, 0.2f, Colors.SandyBrown);
-            load.Switch(_section.Route);
+            _section.Route.Add(load);
         }
 
         private void StartOnBeforeSnapping(FixPoint sender, FixPoint stranger, FixPoint.SnapEventArgs e)

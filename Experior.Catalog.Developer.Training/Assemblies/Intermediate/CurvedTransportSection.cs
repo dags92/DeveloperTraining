@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Xml.Serialization;
 using Experior.Core.Assemblies;
@@ -17,14 +13,14 @@ using Experior.Rendering.Interfaces;
 
 namespace Experior.Catalog.Developer.Training.Assemblies.Intermediate
 {
-    public class CurvedTransportSection : Experior.Core.Assemblies.Assembly
+    public class CurvedTransportSection : Assembly
     {
         #region Fields
 
         private readonly CurvedTransportSectionInfo _info;
 
         private readonly FixPoint _start, _end;
-        private readonly Core.TransportSections.CurveTransportSection _section;
+        private readonly CurveTransportSection _section;
 
         #endregion
 
@@ -187,7 +183,7 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Intermediate
     [TypeConverter(typeof(CurvedTransportSectionInfo))]
     [Serializable]
     [XmlType(TypeName = "Experior.Catalog.Developer.Training.Assemblies.Intermediate.CurvedTransportSectionInfo")]
-    public class CurvedTransportSectionInfo : Experior.Core.Assemblies.AssemblyInfo
+    public class CurvedTransportSectionInfo : AssemblyInfo
     {
         public float Angle { get; set; } = 180f;
 
