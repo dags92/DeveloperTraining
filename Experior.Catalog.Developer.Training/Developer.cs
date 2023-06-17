@@ -16,6 +16,7 @@ namespace Experior.Catalog.Developer.Training
 
             AddBeginnerSamples();
             AddIntermediateSamples();
+            AddAdvancedSamples();
         }
 
         #endregion
@@ -30,7 +31,11 @@ namespace Experior.Catalog.Developer.Training
 
         private void AddBeginnerSamples()
         {
+            Add(Common.Icon.Get("Dimensions"), "Beginner", "Dimensions", Simulation, Create.Dimensions);
+            Add(Common.Icon.Get("ContextMenu"), "Beginner", "Context Menu", Simulation, Create.ContextMenu);
             Add(Common.Icon.Get("PositionAndOrientation"), "Beginner", "Position and Orientation", Simulation, Create.PositionAndOrientation);
+            Add(Common.Icon.Get("Magnet"), "Intermediate", "Magnet", Simulation, Create.Magnet);
+            Add(Common.Icon.Get("FixPoints"), "Intermediate", "Fix Points", Simulation, Create.FixPoints);
             Add(Common.Icon.Get("PlcSignals"), "Beginner", "PLC Signal", Simulation, Create.PlcSignal);
         }
 
@@ -38,10 +43,13 @@ namespace Experior.Catalog.Developer.Training
         {
             Add(Common.Icon.Get("StraightConveyorBelt"), "Intermediate", "Straight Conveyor Belt", Simulation, Create.StraightConveyorBelt);
             Add(Common.Icon.Get("CurveConveyorBelt"), "Intermediate", "Curve Conveyor Belt", Simulation, Create.CurveConveyorBelt);
-            Add(Common.Icon.Get("FixPoints"), "Intermediate", "Fix Points", Simulation, Create.FixPoints);
             Add(Common.Icon.Get("CadMesh"), "Intermediate", "CAD Mesh", Simulation, Create.CadMesh);
             Add(Common.Icon.Get("Printer"), "Intermediate", "Printer", Simulation, Create.Printer);
-            Add(Common.Icon.Get("Magnet"), "Intermediate", "Magnet", Simulation, Create.Magnet);
+            Add(Common.Icon.Get("CoordinateSystems"), "Intermediate", "Coordinate System", Simulation, Create.CoordinateSystems);
+        }
+
+        private void AddAdvancedSamples()
+        {
         }
 
         #endregion

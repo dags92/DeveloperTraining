@@ -9,7 +9,7 @@ using Experior.Core.Properties;
 using Experior.Core.Properties.TypeConverter;
 using Experior.Interfaces;
 
-namespace Experior.Catalog.Developer.Training.Assemblies.Intermediate
+namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
 {
     public class FixPoints : Assembly
     {
@@ -124,7 +124,7 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Intermediate
 
     [TypeConverter(typeof(FixPointsInfo))]
     [Serializable]
-    [XmlType(TypeName = "Experior.Catalog.Developer.Training.Assemblies.Intermediate.FixPointsInfo")]
+    [XmlType(TypeName = "Experior.Catalog.Developer.Training.Assemblies.Beginner.FixPointsInfo")]
     public class FixPointsInfo : AssemblyInfo
     {
 

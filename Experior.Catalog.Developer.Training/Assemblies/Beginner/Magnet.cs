@@ -9,7 +9,7 @@ using Experior.Core.Loads;
 using Experior.Core.Parts.Sensors;
 using Box = Experior.Core.Parts.Sensors.Box;
 
-namespace Experior.Catalog.Developer.Training.Assemblies.Intermediate
+namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
 {
     public class Magnet : Assembly
     {
@@ -102,7 +102,7 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Intermediate
 
     [TypeConverter(typeof(MagnetInfo))]
     [Serializable]
-    [XmlType(TypeName = "Experior.Catalog.Developer.Training.Assemblies.Intermediate.MagnetInfo")]
+    [XmlType(TypeName = "Experior.Catalog.Developer.Training.Assemblies.Beginner.MagnetInfo")]
     public class MagnetInfo : AssemblyInfo
     {
 
