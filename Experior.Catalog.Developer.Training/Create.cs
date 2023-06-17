@@ -148,6 +148,16 @@ namespace Experior.Catalog.Developer.Training
             return new CurvedTransportSection(info);
         }
 
+        public static Assembly CustomFeeder(string title, string subtitle, object properties)
+        {
+            var info = new CustomFeederInfo()
+            {
+                name = Assembly.GetValidName("Custom Feeder Sample "),
+                height = 2f
+            };
+            return new CustomFeeder(info);
+        }
+
         #endregion
 
         #region Advanced

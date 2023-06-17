@@ -48,6 +48,7 @@ namespace Experior.Catalog.Developer.Training
             Add(Common.Icon.Get("CoordinateSystems"), "Intermediate", "Coordinate System", Simulation, Create.CoordinateSystems);
             Add(Common.Icon.Get("StraightTransportSection"), "Intermediate", "Straight Transport Section", Simulation, Create.StraightTransportSection);
             Add(Common.Icon.Get("CurvedTransportSection"), "Intermediate", "Curved Transport Section", Simulation, Create.CurvedTransportSection);
+            Add(Common.Icon.Get("CustomFeeder"), "Intermediate", "Custom Feeder", Simulation, Create.CustomFeeder);
         }
 
         private void AddAdvancedSamples()
