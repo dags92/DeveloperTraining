@@ -25,7 +25,8 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
 
         #region Constructor
 
-        //
+        // The constructor of an Assembly always contains an object deriving from the AssemblyInfo class as an argument.
+        // It is used to support the mechanism for Save/Load a model.
         public DimensionsSample(DimensionsSampleInfo sampleInfo) : base(sampleInfo)
         {
             _sampleInfo = sampleInfo;
@@ -40,16 +41,18 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
         #region Public Properties
 
         // Every public property is displayed in the Property Window !
-        // Attributes enhances the visualization of the properties.
+
+        // Attributes enhance the visualization of the properties.
+
         // [Category("Size")] -> Allocates the property inside a category
         // [DisplayName("Length")] -> Displays the name specified instead of the property name
         // [PropertyOrder(1)] -> Defines the property order in the category
         // [TypeConverter(typeof(FloatMeterToMillimeter))] -> Displays units in the property window
 
-        [Category("Size")] // Allocates the property inside a category
-        [DisplayName("Length")] // Displays the name specified instead of the property name
-        [PropertyOrder(1)] // Defines the property order in the category
-        [TypeConverter(typeof(FloatMeterToMillimeter))] // Displays units in the property window
+        [Category("Size")]
+        [DisplayName("Length")] 
+        [PropertyOrder(1)] 
+        [TypeConverter(typeof(FloatMeterToMillimeter))] 
         public float Length
         {
             get => _sampleInfo.length;
@@ -62,7 +65,7 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
                 }
 
                 _sampleInfo.length = value;
-                Invoke(Refresh); // Invokes the Engine Thread to execute the method Refresh
+                Invoke(Refresh); // Invokes the Engine Thread to execute the method Refresh !
             }
         }
 
@@ -82,7 +85,7 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
                 }
 
                 _sampleInfo.height = value;
-                Invoke(Refresh); // Invokes the Engine Thread to execute the method Refresh
+                Invoke(Refresh); // Invokes the Engine Thread to execute the method Refresh !
             }
         }
 
@@ -102,13 +105,13 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
                 }
 
                 _sampleInfo.width = value;
-                Invoke(Refresh); // Invokes the Engine Thread to execute the method Refresh
+                Invoke(Refresh); // Invokes the Engine Thread to execute the method Refresh !
             }
         }
 
-        public override string Category => "Beginner";
+        public override string Category => "Beginner"; // Category used in the Solution Explorer
 
-        public override ImageSource Image => Common.Icon.Get("DimensionsSample");
+        public override ImageSource Image => Common.Icon.Get("DimensionsSample"); // Image/Icon used in the Solution Explorer
 
         #endregion
 
