@@ -118,6 +118,23 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
         #region Public Methods
 
         /// <summary>
+        /// This method is called only once by Experior when the component is dropped into the Scene.
+        /// </summary>
+        public override void Inserted()
+        {
+            base.Inserted();
+
+            var message = "--------------------------------------------------------------------------------------------" +
+                          "\n Sample: Dimensions" +
+                          "\n Description: " +
+                          "\n 1) Use of Experior.Core.Parts.Box" +
+                          "\n 2) Modification of dimensions through the Property Window" +
+                          "\n --------------------------------------------------------------------------------------------";
+
+            Log.Write(message, Colors.OrangeRed, LogFilter.Information);
+        }
+
+        /// <summary>
         /// This method is called to update the internals of the Assembly when some of its properties have changed. It can be used to create/delete sub-parts.
         /// The method is only called by the developer. Therefore, the developer must take care of invoking the Engine Thread if required.
         /// </summary>

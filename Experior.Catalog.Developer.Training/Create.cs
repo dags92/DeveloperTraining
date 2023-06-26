@@ -19,7 +19,7 @@ namespace Experior.Catalog.Developer.Training
         {
             var info = new DimensionsSampleInfo
             {
-                name = Assembly.GetValidName("DimensionsSample Sample "),
+                name = Assembly.GetValidName("Dimensions Sample "),
                 length = 0.5f,
                 height = 0.5f,
                 width = 0.5f    
