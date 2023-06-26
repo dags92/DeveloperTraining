@@ -72,9 +72,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assemblies\Beginner\ContextMenu.cs" />
-    <Compile Include="Assemblies\Beginner\Dimensions.cs" />
+    <Compile Include="Assemblies\Beginner\DimensionsSample.cs" />
+    <Compile Include="Assemblies\Beginner\Label.cs" />
     <Compile Include="Assemblies\Beginner\PlcSignals.cs" />
     <Compile Include="Assemblies\Beginner\PositionAndOrientation.cs" />
+    <Compile Include="Assemblies\Beginner\Texture.cs" />
     <Compile Include="Assemblies\Intermediate\CadMesh.cs" />
     <Compile Include="Assemblies\Intermediate\CoordinateSystems.cs" />
     <Compile Include="Assemblies\Intermediate\CurveConveyorBelt.cs" />
@@ -134,6 +136,9 @@
     <EmbeddedResource Include="Mesh\BackBase_Cylinder.stl" />
     <EmbeddedResource Include="Mesh\Body_Cylinder.stl" />
     <EmbeddedResource Include="Mesh\FrontBase_Cylinder.stl" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icon\Cubemap.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterBuild">

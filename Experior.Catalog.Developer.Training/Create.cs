@@ -17,14 +17,14 @@ namespace Experior.Catalog.Developer.Training
 
         public static Assembly Dimensions(string title, string subtitle, object properties)
         {
-            var info = new DimensionsInfo
+            var info = new DimensionsSampleInfo
             {
-                name = Assembly.GetValidName("Dimensions Sample "),
+                name = Assembly.GetValidName("DimensionsSample Sample "),
                 length = 0.5f,
                 height = 0.5f,
                 width = 0.5f    
             };
-            return new Dimensions(info);
+            return new DimensionsSample(info);
         }
 
         public static Assembly ContextMenu(string title, string subtitle, object properties)
@@ -74,6 +74,25 @@ namespace Experior.Catalog.Developer.Training
             };
             return new Magnet(info);
         }
+
+        public static Assembly Label(string title, string subtitle, object properties)
+        {
+            var info = new LabelInfo()
+            {
+                name = Assembly.GetValidName("Label Sample "),
+            };
+            return new Label(info);
+        }
+
+        public static Assembly Texture(string title, string subtitle, object properties)
+        {
+            var info = new TextureInfo()
+            {
+                name = Assembly.GetValidName("Texture Sample "),
+            };
+            return new Texture(info);
+        }
+
 
         #endregion
 
