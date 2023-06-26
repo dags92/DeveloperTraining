@@ -158,6 +158,26 @@ namespace Experior.Catalog.Developer.Training
             return new CustomFeeder(info);
         }
 
+        public static Assembly TranslationTimer(string title, string subtitle, object properties)
+        {
+            var info = new TranslationTimerInfo()
+            {
+                name = Assembly.GetValidName("Translation Timer Sample "),
+                height = 1f
+            };
+            return new TranslationTimer(info);
+        }
+
+        public static Assembly RotationTimer(string title, string subtitle, object properties)
+        {
+            var info = new RotationTimerInfo()
+            {
+                name = Assembly.GetValidName("Rotation Timer Sample "),
+                height = 1f
+            };
+            return new RotationTimer(info);
+        }
+
         #endregion
 
         #region Advanced

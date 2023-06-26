@@ -83,8 +83,10 @@
     <Compile Include="Assemblies\Intermediate\CurvedTransportSection.cs" />
     <Compile Include="Assemblies\Intermediate\CustomFeeder.cs" />
     <Compile Include="Assemblies\Intermediate\Printer.cs" />
+    <Compile Include="Assemblies\Intermediate\RotationTimer.cs" />
     <Compile Include="Assemblies\Intermediate\StraightConveyorBelt.cs" />
     <Compile Include="Assemblies\Intermediate\StraightTransportSection.cs" />
+    <Compile Include="Assemblies\Intermediate\TranslationTimer.cs" />
     <Compile Include="Create.cs" />
     <Compile Include="Developer.cs" />
     <Compile Include="Motors\AuxiliaryData.cs" />
@@ -127,6 +129,11 @@
   <ItemGroup>
     <EmbeddedResource Include="Icon\Green.png" />
     <EmbeddedResource Include="Icon\Wheat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mesh\BackBase_Cylinder.stl" />
+    <EmbeddedResource Include="Mesh\Body_Cylinder.stl" />
+    <EmbeddedResource Include="Mesh\FrontBase_Cylinder.stl" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterBuild">

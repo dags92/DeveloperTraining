@@ -49,6 +49,8 @@ namespace Experior.Catalog.Developer.Training
             Add(Common.Icon.Get("StraightTransportSection"), "Intermediate", "Straight Transport Section", Simulation, Create.StraightTransportSection);
             Add(Common.Icon.Get("CurvedTransportSection"), "Intermediate", "Curved Transport Section", Simulation, Create.CurvedTransportSection);
             Add(Common.Icon.Get("CustomFeeder"), "Intermediate", "Custom Feeder", Simulation, Create.CustomFeeder);
+            Add(Common.Icon.Get("TranslationTimer"), "Intermediate", "Translation Timer", Simulation, Create.TranslationTimer);
+            Add(Common.Icon.Get("RotationTimer"), "Intermediate", "Rotation Timer", Simulation, Create.RotationTimer);
         }
 
         private void AddAdvancedSamples()

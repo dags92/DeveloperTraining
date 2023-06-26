@@ -336,7 +336,9 @@ namespace Experior.Catalog.Developer.Training.Motors.Basic
                     InvokeStarted();
                 }
                 else
+                {
                     InvokeStopped();
+                }
             }
         }
 
@@ -435,18 +437,16 @@ namespace Experior.Catalog.Developer.Training.Motors.Basic
 
         public override void StopBreak()
         {
-            Move = false;
-
             TargetSpeed = 0f;
             CurrentSpeed = 0f;
             Motion.Reset();
+
+            Move = false;
 
             _command = AuxiliaryData.Commands.Forward;
             UpdateColor(Colors.Red);
             SetForward();
             MotorStatus();
-
-            InvokeStopped();
         }
 
         public override void SwitchDirection()
