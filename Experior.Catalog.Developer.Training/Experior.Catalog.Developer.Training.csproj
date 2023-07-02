@@ -144,6 +144,12 @@
     <EmbeddedResource Include="Icon\ContextMenuSample.png" />
     <EmbeddedResource Include="Icon\DimensionsSample.png" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icon\PositionAndOrientationSample.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icon\PlcSignalsSample.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterBuild">
     <Experior.Build AssemblyFileLocation="$(OutputPath)$(TargetFileName)">

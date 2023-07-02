@@ -33,7 +33,7 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
 
             
             _box = new Box(Colors.Wheat, _info.length, _info.height, _info.width); // Create a new instance of type Experior.Core.Parts.Box
-            Add(_box); // Every Rigid Part must be added to the Assembly !
+            Add(_box); // Every Experior.Core.Parts.Box must be added to the Assembly !
         }
 
         #endregion

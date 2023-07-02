@@ -38,22 +38,22 @@ namespace Experior.Catalog.Developer.Training
 
         public static Assembly PositionAndOrientation(string title, string subtitle, object properties)
         {
-            var info = new PositionAndOrientationInfo
+            var info = new PositionAndOrientationSampleInfo
             {
                 name = Assembly.GetValidName("Position and Orientation Sample "),
             };
-            return new PositionAndOrientation(info);
+            return new PositionAndOrientationSample(info);
         }
 
         public static Assembly PlcSignal(string title, string subtitle, object properties)
         {
-            var info = new PlcSignalsInfo
+            var info = new PlcSignalsSampleInfo
             {
-                name = Assembly.GetValidName("PLC Signal Sample "),
+                name = Assembly.GetValidName("PLC Signals Sample "),
                 length = 1.5f,
                 width = 0.5f
             };
-            return new PlcSignals(info);
+            return new PlcSignalsSample(info);
         }
 
         public static Assembly FixPoints(string title, string subtitle, object properties)

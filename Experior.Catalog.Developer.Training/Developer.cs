@@ -33,10 +33,10 @@ namespace Experior.Catalog.Developer.Training
         {
             Add(Common.Icon.Get("DimensionsSample"), "Beginner", "Dimensions", Simulation, Create.Dimensions);
             Add(Common.Icon.Get("ContextMenuSample"), "Beginner", "Context Menu", Simulation, Create.ContextMenu);
-            Add(Common.Icon.Get("PositionAndOrientation"), "Beginner", "Position and Orientation", Simulation, Create.PositionAndOrientation);
+            Add(Common.Icon.Get("PositionAndOrientationSample"), "Beginner", "Position and Orientation", Simulation, Create.PositionAndOrientation);
             Add(Common.Icon.Get("Magnet"), "Intermediate", "Magnet", Simulation, Create.Magnet);
             Add(Common.Icon.Get("FixPoints"), "Intermediate", "Fix Points", Simulation, Create.FixPoints);
-            Add(Common.Icon.Get("PlcSignals"), "Beginner", "PLC Signal", Simulation, Create.PlcSignal);
+            Add(Common.Icon.Get("PlcSignalsSample"), "Beginner", "PLC Signals", Simulation, Create.PlcSignal);
             Add(Common.Icon.Get("Label"), "Beginner", "Label", Simulation, Create.Label);
             Add(Common.Icon.Get("Texture"), "Beginner", "Texture", Simulation, Create.Texture);
         }

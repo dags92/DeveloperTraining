@@ -34,7 +34,7 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
             _info = info;
 
             _box = new Box(Colors.Wheat, 0.5f, 0.5f, 0.5f); // Create a new instance of type Experior.Core.Parts.Box
-            Add(_box); // Every Rigid Part must be added to the Assembly !
+            Add(_box); // Every Experior.Core.Parts.Box must be added to the Assembly !
         }
 
         #endregion
@@ -54,8 +54,13 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
             get => _isActive;
             private set
             {
-                _isActive = value;
-                Invoke(ModifyColor);  // Invokes the Engine Thread to execute the method <c>ModifyColor</c> !
+                //  Every property value changed from the Property Window (UI) is handled by the Main Thread.
+                //  On the other hand, changes regarding the visualization, position, creation or deletion
+                //  of RigidParts/Assemblies must be handled by the Engine Thread. Therefore it is required to invoke it. 
+                //  Invoke(ModifyColor) Invokes the Engine Thread to execute the method <c>ModifyColor</c> !
+
+                _isActive = value;     
+                Invoke(ModifyColor);
             }
         }
 
@@ -88,7 +93,7 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
         }
 
         /// <summary>
-        /// This method is called by Experior when the user uses right click on an Assembly.
+        /// This method is called by Experior when the user uses right click on the Assembly.
         /// </summary>
         public override List<Environment.UI.Toolbar.BarItem> ShowContextMenu()
         {
