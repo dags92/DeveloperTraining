@@ -32,7 +32,7 @@ namespace Experior.Catalog.Developer.Training
         private void AddBeginnerSamples()
         {
             Add(Common.Icon.Get("DimensionsSample"), "Beginner", "Dimensions", Simulation, Create.Dimensions);
-            Add(Common.Icon.Get("ContextMenu"), "Beginner", "Context Menu", Simulation, Create.ContextMenu);
+            Add(Common.Icon.Get("ContextMenuSample"), "Beginner", "Context Menu", Simulation, Create.ContextMenu);
             Add(Common.Icon.Get("PositionAndOrientation"), "Beginner", "Position and Orientation", Simulation, Create.PositionAndOrientation);
             Add(Common.Icon.Get("Magnet"), "Intermediate", "Magnet", Simulation, Create.Magnet);
             Add(Common.Icon.Get("FixPoints"), "Intermediate", "Fix Points", Simulation, Create.FixPoints);

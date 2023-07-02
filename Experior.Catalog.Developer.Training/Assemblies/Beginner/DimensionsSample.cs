@@ -17,7 +17,7 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
     {
         #region Fields
 
-        private readonly DimensionsSampleInfo _sampleInfo;
+        private readonly DimensionsSampleInfo _info;
 
         private readonly Box _box;
 
@@ -29,10 +29,10 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
         // It is used to support the mechanism for Save/Load a model.
         public DimensionsSample(DimensionsSampleInfo sampleInfo) : base(sampleInfo)
         {
-            _sampleInfo = sampleInfo;
+            _info = sampleInfo;
 
             
-            _box = new Box(Colors.Wheat, _sampleInfo.length, _sampleInfo.height, _sampleInfo.width); // Create a new instance of type Experior.Core.Parts.Box
+            _box = new Box(Colors.Wheat, _info.length, _info.height, _info.width); // Create a new instance of type Experior.Core.Parts.Box
             Add(_box); // Every Rigid Part must be added to the Assembly !
         }
 
@@ -55,7 +55,7 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
         [TypeConverter(typeof(FloatMeterToMillimeter))] 
         public float Length
         {
-            get => _sampleInfo.length;
+            get => _info.length;
             set
             {
                 if (value <= 0)
@@ -64,8 +64,13 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
                     return;
                 }
 
-                _sampleInfo.length = value;
-                Invoke(Refresh); // Invokes the Engine Thread to execute the method Refresh !
+                //  Every property value changed from the Property Window (UI) is handled by the Main Thread.
+                //  On the other hand, changes regarding the visualization, position, creation or deletion
+                //  of RigidParts/Assemblies must be handled by the Engine Thread. Therefore it is required to invoke it. 
+                //  Invoke(Refresh) Invokes the Engine Thread to execute the method <c>Refresh</c> !
+
+                _info.length = value;
+                Invoke(Refresh);
             }
         }
 
@@ -75,7 +80,7 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
         [TypeConverter(typeof(FloatMeterToMillimeter))]
         public float Height
         {
-            get => _sampleInfo.height;
+            get => _info.height;
             set
             {
                 if (value <= 0)
@@ -84,7 +89,7 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
                     return;
                 }
 
-                _sampleInfo.height = value;
+                _info.height = value;
                 Invoke(Refresh); // Invokes the Engine Thread to execute the method Refresh !
             }
         }
@@ -95,7 +100,7 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
         [TypeConverter(typeof(FloatMeterToMillimeter))]
         public float Width
         {
-            get => _sampleInfo.width;
+            get => _info.width;
             set
             {
                 if (value <= 0)
@@ -104,14 +109,14 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
                     return;
                 }
 
-                _sampleInfo.width = value;
+                _info.width = value;
                 Invoke(Refresh); // Invokes the Engine Thread to execute the method Refresh !
             }
         }
 
-        public override string Category => "Beginner"; // Category used in the Solution Explorer
+        public override string Category => "Beginner"; // Category used by the Solution Explorer
 
-        public override ImageSource Image => Common.Icon.Get("DimensionsSample"); // Image/Icon used in the Solution Explorer
+        public override ImageSource Image => Common.Icon.Get("DimensionsSample"); // Image/Icon used by the Solution Explorer
 
         #endregion
 
@@ -126,12 +131,20 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
 
             var message = "--------------------------------------------------------------------------------------------" +
                           "\n Sample: Dimensions" +
+                          "\n" +
+
                           "\n Description: " +
                           "\n 1) Use of Experior.Core.Parts.Box" +
                           "\n 2) Modification of dimensions through the Property Window" +
+                          "\n 3) Use of Invoke() to invoke the Engine Thread" +
+                          "\n" +
+
+                          "\n Usage: " +
+                          "\n 1) Select the box" +
+                          "\n 2) Modify the dimensions of the box through the Property Window" +
                           "\n --------------------------------------------------------------------------------------------";
 
-            Log.Write(message, Colors.OrangeRed, LogFilter.Information);
+            Log.Write(message, Colors.Orange, LogFilter.Information);
         }
 
         /// <summary>
@@ -140,7 +153,7 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
         /// </summary>
         public override void Refresh()
         {
-            if (_sampleInfo == null)
+            if (_info == null)
             {
                 return;
             }
@@ -153,9 +166,9 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
         #endregion
     }
 
-    [TypeConverter(typeof(DimensionsSampleInfo))] // Attributes to specify the class is Serializable
+    [TypeConverter(typeof(DimensionsSampleInfo))] // -> Attributes to specify the class is Serializable
     [Serializable]
-    [XmlType(TypeName = "Experior.Catalog.Developer.Training.Assemblies.Beginner.DimensionsSampleInfo")] // TypeName must be unique !
+    [XmlType(TypeName = "Experior.Catalog.Developer.Training.Assemblies.Beginner.DimensionsSampleInfo")] // -> TypeName must be unique !
     public class DimensionsSampleInfo : AssemblyInfo
     {
 

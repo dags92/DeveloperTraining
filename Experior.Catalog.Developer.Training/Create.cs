@@ -29,11 +29,11 @@ namespace Experior.Catalog.Developer.Training
 
         public static Assembly ContextMenu(string title, string subtitle, object properties)
         {
-            var info = new ContextMenuInfo
+            var info = new ContextMenuSampleInfo
             {
                 name = Assembly.GetValidName("Context Menu Sample "),
             };
-            return new ContextMenu(info);
+            return new ContextMenuSample(info);
         }
 
         public static Assembly PositionAndOrientation(string title, string subtitle, object properties)
