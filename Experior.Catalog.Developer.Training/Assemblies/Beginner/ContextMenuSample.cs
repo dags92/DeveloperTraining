@@ -27,23 +27,34 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
 
         #region Constructor
 
+        // Note:
         // The constructor of an Assembly always contains an object deriving from the AssemblyInfo class as an argument.
         // It is used to support the mechanism for Save/Load a model.
         public ContextMenuSample(ContextMenuSampleInfo info) : base(info)
         {
             _info = info;
 
-            _box = new Box(Colors.Wheat, 0.5f, 0.5f, 0.5f); // Create a new instance of type Experior.Core.Parts.Box
-            Add(_box); // Every Experior.Core.Parts.Box must be added to the Assembly !
+            // Note:
+            // Create a new instance of type Experior.Core.Parts.Box
+            // Primitive Shapes inside the namespace Experior.Core.Parts are not rigid by default.
+            _box = new Box(Colors.Wheat, 0.5f, 0.5f, 0.5f);
+
+            // Note:
+            // Every RigidPart must be added to the Assembly !
+            Add(_box);
         }
 
         #endregion
 
         #region Public Properties
 
-        public override string Category => "Beginner"; // Category used by the Solution Explorer
+        // Note:
+        // Category is used by the Solution Explorer
+        public override string Category => "Beginner"; 
 
-        public override ImageSource Image => Common.Icon.Get("ContextMenuSample"); // Image/Icon used by the Solution Explorer
+        // Note:
+        // Image is used by the Solution Explorer
+        public override ImageSource Image => Common.Icon.Get("ContextMenuSample"); 
 
         #endregion
 
@@ -93,7 +104,7 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
         }
 
         /// <summary>
-        /// This method is called by Experior when the user uses right click on the Assembly.
+        /// This method is called by Experior when the user uses right click on the selected Assembly.
         /// </summary>
         public override List<Environment.UI.Toolbar.BarItem> ShowContextMenu()
         {
@@ -133,9 +144,12 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
         #endregion
     }
 
-    [TypeConverter(typeof(ContextMenuSampleInfo))] // -> Attributes to specify the class is Serializable
+    // Note:
+    // Attributes allow the developer to specify if a class is Serializable.
+    // Each class must have a unique TypeName !
     [Serializable]
-    [XmlType(TypeName = "Experior.Catalog.Developer.Training.Assemblies.Beginner.ContextMenuSampleInfo")] // -> TypeName must be unique !
+    [TypeConverter(typeof(ContextMenuSampleInfo))]
+    [XmlType(TypeName = "Experior.Catalog.Developer.Training.Assemblies.Beginner.ContextMenuSampleInfo")] 
     public class ContextMenuSampleInfo : AssemblyInfo
     {
 

@@ -27,29 +27,46 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
 
         #region Constructor
 
+        // Note:
         // The constructor of an Assembly always contains an object deriving from the AssemblyInfo class as an argument.
         // It is used to support the mechanism for Save/Load a model.
         public PositionAndOrientationSample(PositionAndOrientationSampleInfo info) : base(info)
         {
             _info = info;
 
+            // Note:
+            // Create a new instance of type Experior.Core.Parts.Box
+            // Primitive Shapes inside the namespace Experior.Core.Parts are not rigid by default.
             _static = new Box(Colors.Wheat, 0.25f, 0.25f, 0.25f);
-            Add(_static); // Every Experior.Core.Parts.Box must be added to the Assembly !
 
+            // Note:
+            // Every RigidPart must be added to the Assembly !
+            Add(_static);
+
+            // Note:
+            // Create a new instance of type Experior.Core.Parts.Sensors.Box
+            // Sensors are able to detect Loads and Equipment (RigidParts which has the property Rigid true).
             _movable = new Core.Parts.Sensors.Box(Colors.DodgerBlue, 0.4f, 0.4f, 0.4f)
             {
                 Collision = Collisions.Loads // Sensors can detect Loads, Equipment (RigidParts) or both !
             };
-            Add(_movable); // Every Experior.Core.Parts.Sensors.Box must be added to the Assembly !
+
+            // Note:
+            // Every Experior.Core.Parts.Sensors.Box must be added to the Assembly !
+            Add(_movable);
         }
 
         #endregion
 
         #region Public Properties
 
-        public override string Category => "Beginner"; // Category used by the Solution Explorer
+        // Note:
+        // Category is used by the Solution Explorer
+        public override string Category => "Beginner";
 
-        public override ImageSource Image => Common.Icon.Get("PositionAndOrientationSample"); // Image/Icon used by the Solution Explorer
+        // Note:
+        // Image is used by the Solution Explorer
+        public override ImageSource Image => Common.Icon.Get("PositionAndOrientationSample");
 
         #endregion
 
@@ -107,6 +124,12 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
         /// </summary>
         public override void KeyDown(KeyEventArgs e)
         {
+            // Note:
+            //  Every property value changed from the Property Window (UI) is handled by the Main Thread.
+            //  On the other hand, changes regarding the visualization, position, creation or deletion
+            //  of RigidParts/Assemblies must be handled by the Engine Thread. Therefore it is required to invoke it. 
+            //  Invoke(Refresh) Invokes the Engine Thread to execute the method <c>Refresh</c> !
+
             Invoke(()=> Move(e.Key));
         }
 
@@ -154,9 +177,12 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
         #endregion
     }
 
-    [TypeConverter(typeof(PositionAndOrientationSampleInfo))] // -> Attributes to specify the class is Serializable
+    // Note:
+    // Attributes allow the developer to specify if a class is Serializable.
+    // Each class must have a unique TypeName !
     [Serializable]
-    [XmlType(TypeName = "Experior.Catalog.Developer.Training.Assemblies.Beginner.PositionAndOrientationSampleInfo")] // -> TypeName must be unique !
+    [TypeConverter(typeof(PositionAndOrientationSampleInfo))] 
+    [XmlType(TypeName = "Experior.Catalog.Developer.Training.Assemblies.Beginner.PositionAndOrientationSampleInfo")] 
     public class PositionAndOrientationSampleInfo : AssemblyInfo
     {
 

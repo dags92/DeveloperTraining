@@ -25,25 +25,33 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
 
         #region Constructor
 
+        // Note:
         // The constructor of an Assembly always contains an object deriving from the AssemblyInfo class as an argument.
         // It is used to support the mechanism for Save/Load a model.
         public DimensionsSample(DimensionsSampleInfo sampleInfo) : base(sampleInfo)
         {
             _info = sampleInfo;
 
-            
-            _box = new Box(Colors.Wheat, _info.length, _info.height, _info.width); // Create a new instance of type Experior.Core.Parts.Box
-            Add(_box); // Every Experior.Core.Parts.Box must be added to the Assembly !
+            // Note:
+            // Create a new instance of type Experior.Core.Parts.Box
+            // Primitive Shapes inside the namespace Experior.Core.Parts are not rigid by default.
+            _box = new Box(Colors.Wheat, _info.length, _info.height, _info.width); 
+
+            // Note:
+            // Every RigidPart must be added to the Assembly !
+            Add(_box);
         }
 
         #endregion
 
         #region Public Properties
 
-        // Every public property is displayed in the Property Window !
+        // Note:
+        // Every public property is displayed in the Property Window.
+        // If the property does not have any attributes, Experior automatically will place it inside the category Miscellaneous
 
+        // Tips:
         // Attributes enhance the visualization of the properties.
-
         // [Category("Size")] -> Allocates the property inside a category
         // [DisplayName("Length")] -> Displays the name specified instead of the property name
         // [PropertyOrder(1)] -> Defines the property order in the category
@@ -60,10 +68,13 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
             {
                 if (value <= 0)
                 {
-                    Log.Write("Length cannot be less than 0 mm", Colors.Orange, LogFilter.Information); // Writes in the Log window
+                    // Note:
+                    // Log class allows the developer to display custom messages in the Log Window.
+                    Log.Warning("Length cannot be less than 0 mm");
                     return;
                 }
 
+                // Note:
                 //  Every property value changed from the Property Window (UI) is handled by the Main Thread.
                 //  On the other hand, changes regarding the visualization, position, creation or deletion
                 //  of RigidParts/Assemblies must be handled by the Engine Thread. Therefore it is required to invoke it. 
@@ -85,12 +96,20 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
             {
                 if (value <= 0)
                 {
-                    Log.Write("Height cannot be less than 0 mm", Colors.Orange, LogFilter.Information); // Writes in the Log window
+                    // Note:
+                    // Log class allows the developer to display custom messages in the Log Window.
+                    Log.Warning("Height cannot be less than 0 mm");
                     return;
                 }
 
+                // Note:
+                //  Every property value changed from the Property Window (UI) is handled by the Main Thread.
+                //  On the other hand, changes regarding the visualization, position, creation or deletion
+                //  of RigidParts/Assemblies must be handled by the Engine Thread. Therefore it is required to invoke it. 
+                //  Invoke(Refresh) Invokes the Engine Thread to execute the method <c>Refresh</c> !
+
                 _info.height = value;
-                Invoke(Refresh); // Invokes the Engine Thread to execute the method Refresh !
+                Invoke(Refresh);
             }
         }
 
@@ -105,18 +124,30 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
             {
                 if (value <= 0)
                 {
-                    Log.Write("Width cannot be less than 0 mm", Colors.Orange, LogFilter.Information); // Writes in the Log window
+                    // Note:
+                    // Log class allows the developer to display custom messages in the Log Window.
+                    Log.Warning("Width cannot be less than 0 mm"); 
                     return;
                 }
 
+                // Note:
+                //  Every property value changed from the Property Window (UI) is handled by the Main Thread.
+                //  On the other hand, changes regarding the visualization, position, creation or deletion
+                //  of RigidParts/Assemblies must be handled by the Engine Thread. Therefore it is required to invoke it. 
+                //  Invoke(Refresh) Invokes the Engine Thread to execute the method <c>Refresh</c> !
+
                 _info.width = value;
-                Invoke(Refresh); // Invokes the Engine Thread to execute the method Refresh !
+                Invoke(Refresh);
             }
         }
 
-        public override string Category => "Beginner"; // Category used by the Solution Explorer
+        // Note:
+        // Category is used by the Solution Explorer
+        public override string Category => "Beginner";
 
-        public override ImageSource Image => Common.Icon.Get("DimensionsSample"); // Image/Icon used by the Solution Explorer
+        // Note:
+        // Image is used by the Solution Explorer
+        public override ImageSource Image => Common.Icon.Get("DimensionsSample"); 
 
         #endregion
 
@@ -166,9 +197,12 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
         #endregion
     }
 
-    [TypeConverter(typeof(DimensionsSampleInfo))] // -> Attributes to specify the class is Serializable
+    // Note:
+    // Attributes allow the developer to specify if a class is Serializable.
+    // Each class must have a unique TypeName !
     [Serializable]
-    [XmlType(TypeName = "Experior.Catalog.Developer.Training.Assemblies.Beginner.DimensionsSampleInfo")] // -> TypeName must be unique !
+    [TypeConverter(typeof(DimensionsSampleInfo))]
+    [XmlType(TypeName = "Experior.Catalog.Developer.Training.Assemblies.Beginner.DimensionsSampleInfo")]
     public class DimensionsSampleInfo : AssemblyInfo
     {
 

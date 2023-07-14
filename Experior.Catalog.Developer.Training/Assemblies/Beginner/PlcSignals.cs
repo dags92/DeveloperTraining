@@ -29,45 +29,78 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
 
         #region Constructor
 
+        // Note:
         // The constructor of an Assembly always contains an object deriving from the AssemblyInfo class as an argument.
-        // It is used to support the mechanism for Save/Load a model.
+        // It is used to support the mechanism for Save/Load a model.  
         public PlcSignalsSample(PlcSignalsSampleInfo info) : base(info)
         {
             _info = info;
 
+            // Note:
+            // Experior.Core.Communication.PLC.Input class is used to receive data from external communication devices (e.g., PLC)
+            // Input class allows the definition of the DataSize.
             if (_info.InputActivate == null)
             {
-                _info.InputActivate = new Input { DataSize = DataSize.BOOL, Symbol = "Activate" }; // Define the DataSize and assign the Symbol
+                _info.InputActivate = new Input { DataSize = DataSize.BOOL, Symbol = "Activate" };
             }
-            Add(_info.InputActivate);  // Every Experior.Core.Communication.PLC.Input signal must be added to the Assembly !
-            _info.InputActivate.OnReceived += InputActivateOnReceived; // Event is invoked when the value of the PLC signal has changed
 
+            // Note:
+            // Every Experior.Core.Communication.PLC.Input must be added to the Assembly.
+            Add(_info.InputActivate);
+
+            // Note:
+            // Experior notifies when the value received from the communication device has changed.
+            _info.InputActivate.OnReceived += InputActivateOnReceived;
+
+            // Note:
+            // Experior.Core.Communication.PLC.Output class is used to send data to external communication devices (e.g., PLC)
+            // Input class allows the definition of the DataSize.
             if (_info.OutputValue == null)
             {
-                _info.OutputValue = new Output { DataSize = DataSize.INT, Symbol = "Value" }; // Define the DataSize and assign the Symbol
+                _info.OutputValue = new Output { DataSize = DataSize.INT, Symbol = "Value" }; 
             }
-            Add(_info.OutputValue);  // Every Experior.Core.Communication.PLC.Output signal must be added to the Assembly !
 
+            // Note:
+            // Every Experior.Core.Communication.PLC.Output must be added to the Assembly.
+            Add(_info.OutputValue);
+
+            // Note:
+            // Create a new instance of type Experior.Core.Parts.Box
+            // Primitive Shapes inside the namespace Experior.Core.Parts are not rigid by default.
             _box = new Box(Colors.Wheat, 0.25f, 0.25f, 0.25f);
-            Add(_box); // Every Experior.Core.Parts.Box must be added to the Assembly !
 
-            _text = new TextBlock(Colors.Green, 0.2f, "0"); // TextBlock is used to display a custom text
-            Add(_text, new Vector3(0, 0.25f, 0f)); // Every Experior.Core.Parts.TextBlock must be added to the Assembly !
+            // Note:
+            // Every RigidPart must be added to the Assembly !
+            Add(_box);
+
+            // Note:
+            // Experior.Core.Parts.TextBox is used to display custom text inside the scene.
+            _text = new TextBlock(Colors.Green, 0.2f, "0");
+
+            // Note:
+            // Every Experior.Core.Parts.TextBox must be added to the Assembly !
+            Add(_text, new Vector3(0, 0.25f, 0f));
         }
 
         #endregion
 
         #region Public Properties
 
+        // Note:
+        // Display the property Experior.Core.Communication.PLC.Output type to allow
+        // the user the modification of the signal Address, Connection, etc.
         [Category("PLC Input Signals")]
         [DisplayName("Value")]
         [PropertyOrder(1)]
-        public Output OutputValue // Allows the user to modify the properties of the class Experior.Core.Communication.PLC.Output
+        public Output OutputValue
         {
             get => _info.OutputValue;
             set => _info.OutputValue = value;
         }
 
+        // Note:
+        // Display the property Experior.Core.Communication.PLC.Input type to allow
+        // the user the modification of the signal Address, Connection, etc.
         [Category("PLC Output Signals")]
         [DisplayName("Activate")]
         [PropertyOrder(1)]
@@ -77,9 +110,13 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
             set => _info.InputActivate = value;
         }
 
-        public override string Category => "Beginner"; // Category used by the Solution Explorer
+        // Note:
+        // Category is used by the Solution Explorer
+        public override string Category => "Beginner";
 
-        public override ImageSource Image => Common.Icon.Get("PlcSignalsSample"); // Image/Icon used by the Solution Explorer
+        // Note:
+        // Image is used by the Solution Explorer
+        public override ImageSource Image => Common.Icon.Get("PlcSignalsSample");
 
         #endregion
 
@@ -103,7 +140,7 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
 
                           "\n Usage: " +
                           "\n 1) Through the Property Window define the Address of the Assembly PLC I/Os" +
-                          "\n 1) Modify the value of the PLC Signal Activate" +
+                          "\n 2) Modify the value of the PLC Signal Activate" +
                           "\n --------------------------------------------------------------------------------------------";
 
             Log.Write(message, Colors.Orange, LogFilter.Information);
@@ -138,6 +175,9 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
             var shortValue = tempValue ? (short)1 : (short)0;
             OutputValue.Send(shortValue);
 
+            // Note:
+            //  Communication devices are executed in different threads. Therefore, it is required to Invoke the Engine Thread
+            //  in order to apply visualization changes.
             Environment.InvokeIfRequired(() =>
             {
                 _box.Color = tempValue ? Colors.SaddleBrown : Colors.Wheat;
@@ -148,13 +188,20 @@ namespace Experior.Catalog.Developer.Training.Assemblies.Beginner
         #endregion
     }
 
-    [TypeConverter(typeof(PlcSignalsSampleInfo))] // -> Attributes to specify the class is Serializable
+    // Note:
+    // Attributes allow the developer to specify if a class is Serializable.
+    // Each class must have a unique TypeName !
     [Serializable]
-    [XmlType(TypeName = "Experior.Catalog.Developer.Training.Assemblies.Beginner.PlcSignalsSampleInfo")] // -> TypeName must be unique !
+    [TypeConverter(typeof(PlcSignalsSampleInfo))]
+    [XmlType(TypeName = "Experior.Catalog.Developer.Training.Assemblies.Beginner.PlcSignalsSampleInfo")]
     public class PlcSignalsSampleInfo : AssemblyInfo
     {
-        public Input InputActivate { get; set; } // Experior.Core.Communication.PLC.Input type is serializable !
+        // Note:
+        // Experior.Core.Communication.PLC.Input type is Serializable.
+        public Input InputActivate { get; set; }
 
-        public Output OutputValue { get; set; } // Experior.Core.Communication.PLC.Output type is serializable !
+        // Note:
+        // Experior.Core.Communication.PLC.Output type is Serializable.
+        public Output OutputValue { get; set; }
     }
 }
